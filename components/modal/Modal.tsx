@@ -81,6 +81,7 @@ export interface ModalProps {
   closeIcon?: React.ReactNode;
   modalRender?: (node: React.ReactNode) => React.ReactNode;
   focusTriggerAfterClose?: boolean;
+  id?: string;
 }
 
 type getContainerFunc = () => HTMLElement;
@@ -174,6 +175,7 @@ const Modal: React.FC<ModalProps> = props => {
     getContainer,
     closeIcon,
     focusTriggerAfterClose = true,
+    id,
     ...restProps
   } = props;
 
@@ -212,6 +214,7 @@ const Modal: React.FC<ModalProps> = props => {
       focusTriggerAfterClose={focusTriggerAfterClose}
       transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
       maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
+      id={id}
     />
   );
 };
